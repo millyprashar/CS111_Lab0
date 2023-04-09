@@ -4,20 +4,35 @@
 #include <linux/seq_file.h>
 #include <linux/sched.h>
 
+static struct proc_dir_entry *entry;
+
+static int proc_count(struct seq_file *m, void *v)
+{
+	struct task_struct *p;
+	int i = 0;
+	for_each_process(p) {
+		i++;
+	}
+	seq_printf(m, i);
+	return 0;
+}
+
 static int __init proc_count_init(void)
 {
+	entry = proc_create_single("something", 0, NULL, proc_count);
 	pr_info("proc_count: init\n");
 	return 0;
 }
 
 static void __exit proc_count_exit(void)
 {
+	proc_remove(entry);
 	pr_info("proc_count: exit\n");
 }
 
 module_init(proc_count_init);
 module_exit(proc_count_exit);
 
-MODULE_AUTHOR("Your name");
+MODULE_AUTHOR("Milly Prashar");
 MODULE_DESCRIPTION("One sentence description");
 MODULE_LICENSE("GPL");
