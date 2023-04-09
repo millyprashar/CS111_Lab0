@@ -3,6 +3,7 @@
 #include <linux/proc_fs.h>
 #include <linux/seq_file.h>
 #include <linux/sched.h>
+#include <stdio.h>
 
 static struct proc_dir_entry *entry;
 
