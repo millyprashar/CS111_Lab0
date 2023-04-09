@@ -12,8 +12,9 @@ static int proc_count(struct seq_file *m, void *v)
 	int sqr_sum = 0;
 	int i = 0;
 	for_each_process(p) {
-		seq_printf(m, "Hello World\n");
+		i++;
 	}
+	printf("%d", i);
 	return 0;
 }
 
