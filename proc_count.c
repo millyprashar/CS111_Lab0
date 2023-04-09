@@ -19,7 +19,7 @@ static int proc_count(struct seq_file *m, void *v)
 
 static int __init proc_count_init(void)
 {
-	entry = proc_create_single("something", 0, NULL, proc_count);
+	entry = proc_create_single("count", 0, NULL, proc_count);
 	pr_info("proc_count: init\n");
 	return 0;
 }
