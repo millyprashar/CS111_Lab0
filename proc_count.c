@@ -14,7 +14,7 @@ static int proc_count(struct seq_file *m, void *v)
 	for_each_process(p) {
 		i++;
 	}
-	seq_printf(m, "hello world");
+	seq_printf(m, "%d\n", i);
 	return 0;
 }
 
