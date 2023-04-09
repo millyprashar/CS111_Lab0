@@ -9,11 +9,11 @@ static struct proc_dir_entry *entry;
 static int proc_count(struct seq_file *m, void *v)
 {
 	struct task_struct *p;
+	int sqr_sum = 0;
 	int i = 0;
 	for_each_process(p) {
-		i++;
+		seq_printf(m, "Hello World\n");
 	}
-	seq_printf(m, i);
 	return 0;
 }
 
